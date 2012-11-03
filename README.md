@@ -4,16 +4,16 @@ WsClient - Lets make WS simple
 About
 ------
 This simple tool helps us to test any web services. It uses jQuery for functional or operational and jQuery UI for its rich and flexible UI. 
-
+We encourage people to fork / download / create new repo out of this repo.
 
 Official site
 --------------
-The official site of this tool is: [https://github.com/NeerajKPatel/WsClient](WsClient)
+The official site of this tool is: [WsClient](https://github.com/NeerajKPatel/WsClient)
 
 
 Download
 ----------
-The source code can be downloaded in [https://github.com/NeerajKPatel/WsClient/archive/master.zip](zipped file)
+The source code can be downloaded in [zipped file](https://github.com/NeerajKPatel/WsClient/archive/master.zip)
 
 
 License
