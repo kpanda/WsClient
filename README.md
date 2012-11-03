@@ -8,11 +8,12 @@ We encourage people to fork / download / create new repo out of this repo.
 
 Official site
 --------------
-The official site of this tool is: [WsClient](https://github.com/NeerajKPatel/WsClient).
+The official site of this tool is: [WsClient site](http://neerajkpatel.github.com/WsClient).
 
 
 Download
 ----------
+You can visit the [WsClient repo](https://github.com/NeerajKPatel/WsClient) in GIT Hub.
 The source code can be downloaded in zipped file: [master.zip](https://github.com/NeerajKPatel/WsClient/archive/master.zip).
 
 

@@ -1,60 +1,100 @@
 /**
- * 
- * This is a self-invoking function.
- *
- */
+* 
+* This is a self-invoking function.
+*
+*/
+WsClient = wsc = function () {
 
-( function () { 
-	//code goes here
+	/****************************************************************
+	 **	VARIABLES
+	 ***************************************************************/
+	wsc.SERVICE_URL = 'http://localhost:57299/ProductService.asmx?op=SaveProduct';
+
+	wsc.REQ = '';
+	wsc.REQ = '<Search xmlns="http://model.businessobjects.domain.gcrm.ist.apple.com"> \
+	<TotalCountInResponse>true</TotalCountInResponse> \
+	<ResultSize>1000</ResultSize> \
+	<DiagnosticsEnabled>false</DiagnosticsEnabled> \
+	<TransactionID>410ab469-b342-419e-87cd-123744323e81</TransactionID> \
+	<AppID>supertramp.corp.apple.com</AppID> \
+	<SearchMap> \
+		<entry> \
+			<SearchRequest> \
+				<SearchCriteria> \
+					<field>COMPANY_BO_ID</field> \
+					<operator>EQUALS</operator> \
+					<value>423174</value> \
+				</SearchCriteria> \
+				<operatorType>NO_OP</operatorType> \
+			</SearchRequest> \
+			<Operator>NO_OP</Operator> \
+		</entry> \
+	</SearchMap> \
+	</Search>';
+
+	/****************************************************************
+	 **	LOGGER
+	 ***************************************************************/
+	//----- BEGINS: void modifying this code----//
+	// This package is used to print the logs in the console of a web browsers like firefox.
+
+	//create main logger package
+	wsc.logger = function() {
 	
-	var productServiceUrl = 'http://localhost:57299/ProductService.asmx?op=SaveProduct'; // Preferably write this out from server side
-
-	var coherenceReq = '';
-	coherenceReq = '<Search xmlns="http://model.businessobjects.domain.gcrm.ist.apple.com"> \
-    <TotalCountInResponse>true</TotalCountInResponse> \
-    <ResultSize>1000</ResultSize> \
-    <DiagnosticsEnabled>false</DiagnosticsEnabled> \
-    <TransactionID>410ab469-b342-419e-87cd-123744323e81</TransactionID> \
-    <AppID>supertramp.corp.apple.com</AppID> \
-    <SearchMap> \
-        <entry> \
-            <SearchRequest> \
-                <SearchCriteria> \
-                    <field>COMPANY_BO_ID</field> \
-                    <operator>EQUALS</operator> \
-                    <value>423174</value> \
-                </SearchCriteria> \
-                <operatorType>NO_OP</operatorType> \
-            </SearchRequest> \
-            <Operator>NO_OP</Operator> \
-        </entry> \
-    </SearchMap> \
-</Search>';
-
-	WsClient = wsc = function () {
+		//this package variable is used to set the logging...
+		// ... set it true, if you want to print the logs in console...
+		// ... set it false, if you DO NOT want to print the logs in console.
+		wsc.logger.LOG = true;	
 	
-		alert('Welcome... ');
+		//this sub-package is used to print the logs in INFORMATION manner
+		wsc.logger.info = function(msg){
+			if (wsc.logger.LOG) {
+				console.info(msg);
+			}
+		};
+	
+		//this sub-package is used to print the logs in WARNING manner
+		wsc.logger.warn = function(msg){
+			if (wsc.logger.LOG) {
+				console.warn(msg);
+			}
+		};
+	
+		//this sub-package is used to print the logs in ERROR manner
+		wsc.logger.error = function(msg){
+			if (wsc.logger.LOG) {
+				console.error(msg);
+			}
+		};
 	};
 	
-	wsc.beginSaveProduct = function (productServiceUrl , coherenceReq) { 
+	//initialize this package
+	wsc.logger();
+	//----- END: Avoid modifying this code----//
+	
 
+	/****************************************************************
+	 **	Web Services 
+	 ***************************************************************/
+	wsc.hitWS = function (productServiceUrl , coherenceReq) { 
+	
 		//now call the AJAX services
 		$.ajax({
-			url: productServiceUrl,
+			url: wsc.SERVICE_URL ,
 			type: "POST",
 			dataType: "xml",
-			data: coherenceReq,
+			data: wsc.REQ ,
 			complete: function(xml, status)
 			{
 				console.info('status is', status); 
-				console.info('XML result is',xml.responseText); 
+				console.info('XML result is', xml.responseText); 
 			},
 			contentType: "application/xml"
 		});
 	
 		return false;
 	};
-
+	
 	wsc.beginSaveProduct = function (xml) {
 	
 		/*
@@ -77,8 +117,15 @@
 			}           
 		  }
 		});
-		*/		
-	};	
+		*/
+	};
+
+	/****************************************************************
+	 **	INIT of wsc (WsClient) package
+	 ***************************************************************/
+	wsc.init = function(){
 	
-  } 
-) ();
+	
+	};
+
+};
