@@ -38,3 +38,12 @@ body {
 	float: left;
 	margin: 0 4px;
 }
+
+
+/*************************
+ * WsClients CSS
+ ************************/
+ 
+.hideMe {
+	display: none;
+} 
