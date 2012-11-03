@@ -4,139 +4,102 @@
 	<meta charset="utf-8">
 	<title>WsClient: Lets make WS simple</title>
 	<link href="css/jQuery/jquery-ui-1.9.1.custom.css" rel="stylesheet">
-	<link href="css/jWsClient.css" rel="stylesheet">
+	<link href="css/WsClient.css" rel="stylesheet">
 	<script src="js/WsClient.js"></script>
 	<script src="js/jQuery/jquery-1.8.2.js"></script>
 	<script src="js/jQuery/jquery-ui-1.9.1.custom.js"></script>
 	<script>
-	$(function() {		
-		$( "#accordion" ).accordion();
-		
-		var availableTags = [
-			"ActionScript",
-			"AppleScript",
-			"Asp",
-			"BASIC",
-			"C",
-			"C++",
-			"Clojure",
-			"COBOL",
-			"ColdFusion",
-			"Erlang",
-			"Fortran",
-			"Groovy",
-			"Haskell",
-			"Java",
-			"JavaScript",
-			"Lisp",
-			"Perl",
-			"PHP",
-			"Python",
-			"Ruby",
-			"Scala",
-			"Scheme"
-		];
-		$( "#autocomplete" ).autocomplete({
-			source: availableTags
-		});
-		
-
-		
-		$( "#button" ).button();
-		$( "#radioset" ).buttonset();
-		
-
-		
-		$( "#tabs" ).tabs();
-		
-
-		
-		$( "#dialog" ).dialog({
-			autoOpen: false,
-			width: 400,
-			buttons: [
-				{
-					text: "Ok",
-					click: function() {
-						$( this ).dialog( "close" );
+		$(function() {		
+			$( "#accordionWsC" ).accordion();
+			
+			var availableTags = [
+				"ActionScript",
+				"AppleScript",
+				"Asp",
+				"BASIC",
+				"C",
+				"C++",
+				"Clojure",
+				"COBOL",
+				"ColdFusion",
+				"Erlang",
+				"Fortran",
+				"Groovy",
+				"Haskell",
+				"Java",
+				"JavaScript",
+				"Lisp",
+				"Perl",
+				"PHP",
+				"Python",
+				"Ruby",
+				"Scala",
+				"Scheme"
+			];
+			$( "#autocomplete" ).autocomplete({
+				source: availableTags
+			});
+			
+	
+			
+			$( "#button" ).button();
+			$( "#radioset" ).buttonset();
+			
+	
+			
+			$( "#tabs" ).tabs();
+			
+	
+			
+			$( "#dialog" ).dialog({
+				autoOpen: false,
+				width: 400,
+				buttons: [
+					{
+						text: "Ok",
+						click: function() {
+							$( this ).dialog( "close" );
+						}
+					},
+					{
+						text: "Cancel",
+						click: function() {
+							$( this ).dialog( "close" );
+						}
 					}
+				]
+			});
+	
+			// Link to open the dialog
+			$( "#dialog-link" ).click(function( event ) {
+				$( "#dialog" ).dialog( "open" );
+				event.preventDefault();
+			});		
+	
+			
+			$( "#progressbar" ).progressbar({
+				value: 20
+			});
+			
+	
+			// Hover states on the static widgets
+			$( "#dialog-link, #icons li" ).hover(
+				function() {
+					$( this ).addClass( "ui-state-hover" );
 				},
-				{
-					text: "Cancel",
-					click: function() {
-						$( this ).dialog( "close" );
-					}
+				function() {
+					$( this ).removeClass( "ui-state-hover" );
 				}
-			]
+			);
 		});
-
-		// Link to open the dialog
-		$( "#dialog-link" ).click(function( event ) {
-			$( "#dialog" ).dialog( "open" );
-			event.preventDefault();
-		});		
-
-		
-		$( "#progressbar" ).progressbar({
-			value: 20
-		});
-		
-
-		// Hover states on the static widgets
-		$( "#dialog-link, #icons li" ).hover(
-			function() {
-				$( this ).addClass( "ui-state-hover" );
-			},
-			function() {
-				$( this ).removeClass( "ui-state-hover" );
-			}
-		);
-	});
 	</script>
-	<style>
-	body{
-		font: 62.5% "Trebuchet MS", sans-serif;
-		margin: 50px;
-	}
-	.accordionHeaders {
-		margin-top: 2em;
-	}
-	#dialog-link {
-		padding: .4em 1em .4em 20px;
-		text-decoration: none;
-		position: relative;
-	}
-	#dialog-link span.ui-icon {
-		margin: 0 5px 0 0;
-		position: absolute;
-		left: .2em;
-		top: 50%;
-		margin-top: -8px;
-	}
-	#icons {
-		margin: 0;
-		padding: 0;
-	}
-	#icons li {
-		margin: 2px;
-		position: relative;
-		padding: 4px 0;
-		cursor: pointer;
-		float: left;
-		list-style: none;
-	}
-	#icons span.ui-icon {
-		float: left;
-		margin: 0 4px;
-	}
-	</style>
 </head>
 <body>
-	<h1>WsClient: Open Sourced web tool: <i>Lets make WS simple</i></h1>
+	<h1>WsClient: Open Sourced web tool</h1>
 		
-	<!-- Accordion -->
-	<h2 class="headerClass">Accordion</h2>
-	<div id="accordion">
+	<!-- jQuery Accordion -->
+	<h2 class="headerClass"><i>Lets make WS simple</i></h2>
+	<div id="accordionWsC">
 		<h3>About</h3>
 		<div>
 			<p>This simple tool helps us to test any web services. It uses jQuery for functional or operational and jQuery UI for its rich and flexible UI. We encourage people to fork / download / create new repo out of this repo.</p>
