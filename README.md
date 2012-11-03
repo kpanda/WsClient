@@ -8,12 +8,12 @@ This simple tool helps us to test any web services. It uses jQuery for functiona
 
 Official site
 --------------
-The official site of this tool is: [https://github.com/NeerajKPatel/WsClient] WsClient
+The official site of this tool is: [https://github.com/NeerajKPatel/WsClient](WsClient)
 
 
 Download
 ----------
-The source code can be downloaded in [https://github.com/NeerajKPatel/WsClient/archive/master.zip"] zipped file
+The source code can be downloaded in [https://github.com/NeerajKPatel/WsClient/archive/master.zip](zipped file)
 
 
 License
