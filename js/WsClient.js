@@ -8,29 +8,7 @@ wsc = function () {
 	/****************************************************************
 	 **	VARIABLES
 	 ***************************************************************/
-	wsc.SERVICE_URL = 'http://localhost:57299/ProductService.asmx?op=SaveProduct';
 
-	wsc.REQ = '';
-	wsc.REQ = '<Search xmlns="http://model.businessobjects.domain.gcrm.ist.apple.com"> \
-	<TotalCountInResponse>true</TotalCountInResponse> \
-	<ResultSize>1000</ResultSize> \
-	<DiagnosticsEnabled>false</DiagnosticsEnabled> \
-	<TransactionID>410ab469-b342-419e-87cd-123744323e81</TransactionID> \
-	<AppID>supertramp.corp.apple.com</AppID> \
-	<SearchMap> \
-		<entry> \
-			<SearchRequest> \
-				<SearchCriteria> \
-					<field>COMPANY_BO_ID</field> \
-					<operator>EQUALS</operator> \
-					<value>423174</value> \
-				</SearchCriteria> \
-				<operatorType>NO_OP</operatorType> \
-			</SearchRequest> \
-			<Operator>NO_OP</Operator> \
-		</entry> \
-	</SearchMap> \
-	</Search>';
 
 	/****************************************************************
 	 **	LOGGER
@@ -91,12 +69,9 @@ wsc = function () {
 				console.info('XML result is', xml.responseText); 
 				wsc.updateResults($('#requestTextArea').val(), status, xml.responseText);
 			},
-			contentType: "application/xml",
-			timeoutNumber: 100
-		}).done(function() { 
-		  	$( "#progressbar" ).progressbar({
-            	value: 100
-        	});
+			contentType: "application/xml"
+		}).done(function() {
+			//do some thing 
 		});
 	
 		return false;
