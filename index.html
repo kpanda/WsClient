@@ -99,7 +99,7 @@
 	</script>
 </head>
 <body>
-
+	<div id="mainDiv">
 	<div style="margin-top: 0em;">
 		<div id="radioset" style="float: right;">
 			<input type="radio" id="radio1" name="radio" checked="checked" onclick="wsc.utils.showThis('toolInfoWsC');"><label for="radio1">Tool</label>
@@ -131,14 +131,26 @@
 				<td>
 				</td>
 				<td>
-					<p><a href="#" id="dialog-link" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-transferthick-e-w"></span>Send to WS</a></p>
+					<p>
+					<a href="#" id="dialog-link" 
+						class="ui-state-default ui-corner-all" 
+						onclick="wsc.hitWS();">
+						<span class="ui-icon ui-icon-transferthick-e-w"></span>Send to WS
+					</a>
+					</p>
 				</td>
 			</tr>
 		</table>
 
+		<hr/>
+
 		<div id="requestTextAreaDiv">
-			<h2 class="headerClass">Request / Input: </h2>
-			<textarea id="requestTextArea" title="Please paste your request XML here...">Request goes here</textarea>
+			<span style="font-size: 1.5em;"> Request / Input:</span>
+			<div id="requestDiv">
+				<a href="#" onclick="wsc.toggleArrow(this);"><span class="ui-icon ui-icon-circle-triangle-s"></span></a>
+			</div>
+			<textarea id="requestTextArea" cols="120" rows="12"
+				title="Please paste your request XML here...">Request goes here</textarea>
 		</div>
 	
 		<!-- Highlight / Error -->
@@ -173,6 +185,11 @@
 		</div>
 
 		<hr/>
+		<div id="statusDiv" class="hideMe">
+			<span style="font-size: 1.7em;">Result:</span>
+			<span id="status" style="font-size: 1.5em;"/>
+		</div>
+
 		<!-- Tabs -->
 		<h2 class="headerClass">Inputs / Outputs</h2>
 		<div id="tabs">
@@ -181,10 +198,10 @@
 				<li><a href="#response">Response</a></li>
 			</ul>
 			<div id="request">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				<textarea id="requestXMLTextArea" cols="120" rows="12"></textarea>
 			</div>
 			<div id="response">
-				Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.
+				<textarea id="responseXMLTextArea" cols="120" rows="12"></textarea>
 			</div>
 		</div>
 				
@@ -225,6 +242,7 @@
 			<p>Neeraj Kumar<br/><a href="mailto:kumarneraj@gmail.com">kumarneraj@gmail.com</a></p>
 		</div>
 	</div>
-
+	
+	</div>
 </body>
 </html>

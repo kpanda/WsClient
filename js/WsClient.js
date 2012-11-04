@@ -76,24 +76,41 @@ wsc = function () {
 	/****************************************************************
 	 **	Web Services 
 	 ***************************************************************/
-	wsc.hitWS = function (productServiceUrl , coherenceReq) { 
+
+	wsc.hitWS = function () { 
 	
 		//now call the AJAX services
 		$.ajax({
-			url: wsc.SERVICE_URL ,
-			type: "POST",
+			url: $('#wsUrl').val() ,
+			type:  $('#wsMethod').val(),
 			dataType: "xml",
-			data: wsc.REQ ,
+			data: $('#requestTextArea').val() ,
 			complete: function(xml, status)
 			{
 				console.info('status is', status); 
 				console.info('XML result is', xml.responseText); 
+				wsc.updateResults($('#requestTextArea').val(), status, xml.responseText);
 			},
-			contentType: "application/xml"
+			contentType: "application/xml",
+			timeoutNumber: 100
+		}).done(function() { 
+		  	$( "#progressbar" ).progressbar({
+            	value: 100
+        	});
 		});
 	
 		return false;
 	};
+	
+	wsc.updateResults = function(requestXML, status, responseXML) {
+	
+		$('#statusDiv').removeClass('hideMe');
+		$('#status').text(status).css({"color":"green", "background-color":"white"});
+		
+		$('#requestXMLTextArea').val(requestXML);
+		//XML object $.parseXML(responseXML)
+		$('#responseXMLTextArea').val(responseXML);
+	};	
 	
 	wsc.beginSaveProduct = function (xml) {
 	
@@ -147,8 +164,15 @@ wsc = function () {
 			
 			wsc.logger.info('END: show this div... ');
 		};
-
 	};
+
+
+	wsc.toggleArrow = function() {
+		
+		$('#requestDiv span').toggleClass('ui-icon-circle-triangle-s ui-icon-circle-triangle-e');
+		$('#requestTextArea').toggleClass('hideMe');
+	};
+
 
 	/****************************************************************
 	 **	INIT of wsc (WsClient) package
