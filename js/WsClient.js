@@ -3,7 +3,7 @@
 * This is a self-invoking function.
 *
 */
-WsClient = wsc = function () {
+wsc = function () {
 
 	/****************************************************************
 	 **	VARIABLES
@@ -121,11 +121,48 @@ WsClient = wsc = function () {
 	};
 
 	/****************************************************************
+	 **	Utils of wsc (WsClient) package
+	 ***************************************************************/
+	wsc.utils = function() {
+
+		//hide all the div's
+		wsc.utils.hideAll = function(callbackfn) {
+		
+			wsc.logger.info('BEGIN: hide all the divs');
+					
+			// hide all the divs and after call the callback function
+			$("#toolInfoWsC, #aboutToolWsC, #contactInfoWsC").addClass("hideMe"); 
+			
+			wsc.logger.info('END: hiding and callback function called ...');
+		};
+		
+		
+		//show the div selected
+		wsc.utils.showThis = function(componentId) {
+		
+			wsc.utils.hideAll();	
+			
+			//now show this component
+			$('#'+componentId).removeClass("hideMe");
+			
+			wsc.logger.info('END: show this div... ');
+		};
+
+	};
+
+	/****************************************************************
 	 **	INIT of wsc (WsClient) package
 	 ***************************************************************/
-	wsc.init = function(){
+	wsc.init = function() {
 	
-	
+		//lets roll the logger class
+		wsc.logger()
+		//now set the flag to true to display logs
+		wsc.logger.LOG = true;
+
+		//call the utils package, as it would be required
+		wsc.utils();
+		
 	};
 
 };

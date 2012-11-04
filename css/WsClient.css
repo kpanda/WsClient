@@ -47,3 +47,26 @@ body {
 .hideMe {
 	display: none;
 } 
+
+#toolHeader {
+
+	width:100%;
+}
+
+.labels {
+	font-size: 1.5em;
+	float: right;
+}
+
+#wsUrl {
+	width: 90%;
+	float: left;
+}
+
+.greyColorFont {
+	color: grey;
+}
+
+#wsMethod{
+	width: 10em;
+}
