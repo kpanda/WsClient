@@ -27,3 +27,8 @@ License
 --------
 The source codes and tool are under licensed GNU General Public License version 3.
 For more information, please refer to file: [license.txt](https://github.com/NeerajKPatel/WsClient/blob/master/license.txt).
+
+
+Demo
+--------
+You can test this tool online by visiting [demo](http://neerajkpatel.github.com/WsClient/demo.html) page.
