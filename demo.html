@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>WsClient: Lets make WS simple</title>
+	<link href="css/jQuery/jquery-ui-1.9.1.custom.css" rel="stylesheet">
+	<link href="css/WsClient.css" rel="stylesheet">
+	<script src="js/WsClient.js"></script>
+	<script src="js/jQuery/jquery-1.8.2.js"></script>
+	<script src="js/jQuery/jquery-ui-1.9.1.custom.js"></script>
+	<script>
+		$(function() {		
+			$( "#accordionWsC" ).accordion();
+			
+			var availableTags = [
+				"ActionScript",
+				"AppleScript",
+				"Asp",
+				"BASIC",
+				"C",
+				"C++",
+				"Clojure",
+				"COBOL",
+				"ColdFusion",
+				"Erlang",
+				"Fortran",
+				"Groovy",
+				"Haskell",
+				"Java",
+				"JavaScript",
+				"Lisp",
+				"Perl",
+				"PHP",
+				"Python",
+				"Ruby",
+				"Scala",
+				"Scheme"
+			];
+			$( "#autocomplete" ).autocomplete({
+				source: availableTags
+			});
+			
+	
+			
+			$( "#button" ).button();
+			$( "#radioset" ).buttonset();
+			
+	
+			
+			$( "#tabs" ).tabs();
+			
+	
+			
+			$( "#dialog" ).dialog({
+				autoOpen: false,
+				width: 400,
+				buttons: [
+					{
+						text: "Ok",
+						click: function() {
+							$( this ).dialog( "close" );
+						}
+					},
+					{
+						text: "Cancel",
+						click: function() {
+							$( this ).dialog( "close" );
+						}
+					}
+				]
+			});
+	
+			// Link to open the dialog
+			$( "#dialog-link" ).click(function( event ) {
+				$( "#dialog" ).dialog( "open" );
+				event.preventDefault();
+			});		
+	
+			
+			$( "#progressbar" ).progressbar({
+				value: 20
+			});
+			
+	
+			// Hover states on the static widgets
+			$( "#dialog-link, #icons li" ).hover(
+				function() {
+					$( this ).addClass( "ui-state-hover" );
+				},
+				function() {
+					$( this ).removeClass( "ui-state-hover" );
+				}
+			);
+			
+			//call the WsClient package
+			wsc();
+			wsc.init();
+		});
+	</script>
+</head>
+<body>
+	<div id="mainDiv">
+	<div style="margin-top: 0em;">
+		<div id="radioset" style="float: right;">
+			<input type="radio" id="radio1" name="radio" checked="checked" onclick="wsc.utils.showThis('toolInfoWsC');"><label for="radio1">Tool</label>
+			<input type="radio" id="radio2" name="radio" onclick="wsc.utils.showThis('aboutToolWsC');"><label for="radio2">About</label>
+			<input type="radio" id="radio3" name="radio" onclick="wsc.utils.showThis('contactInfoWsC');"><label for="radio3">Contact</label>
+		</div>
+	</div>
+
+	<h1>WsClient: Open Sourced web tool</h1>
+	<hr/>
+
+	<div id="toolInfoWsC">
+
+		<table id="toolHeader">
+			<tr>		
+				<td> <span id="wsUrlLabel" class="labels greyColorFont"> WS URL:</span> </td>
+				<td> <input id="wsUrl" title="please feed your URL here..."> </td>
+			</tr>
+			<tr>		
+				<td> <span id="wsMethodLabel" class="labels greyColorFont"> method:</span> </td>
+				<td>
+				 <select id="wsMethod" title="select the method type"> 
+				 	<option value="POST">POST</option>
+				 	<option value="GET">GET</option>
+				 </select>
+				</td>
+			</tr>
+			<tr>		
+				<td>
+				</td>
+				<td>
+					<p>
+					<a href="#" id="dialog-link" 
+						class="ui-state-default ui-corner-all" 
+						onclick="wsc.hitWS();">
+						<span class="ui-icon ui-icon-transferthick-e-w"></span>Send to WS
+					</a>
+					</p>
+				</td>
+			</tr>
+		</table>
+
+		<hr/>
+
+		<div id="requestTextAreaDiv">
+			<span style="font-size: 1.5em;" class="greyColorFont"> Request / Input:</span>
+			<br/>
+			<textarea id="requestTextArea" cols="120" rows="12"
+				title="Please paste your request XML here..."></textarea>
+		</div>
+	
+		<!-- Highlight / Error -->
+		<div id="divsforAlert" class="hideMe">
+
+			<!-- Autocomplete -->
+			<h2 class="headerClass">Autocomplete</h2>
+			<div>
+				<input id="autocomplete" title="type the header type">
+			</div>	
+			
+		</div>
+
+		<hr/>
+		<div id="statusDiv" class="hideMe">
+			<span style="font-size: 1.7em;">Result:</span>
+			<span id="status" style="font-size: 1.5em;"/>
+		</div>
+
+		<!-- Tabs -->
+		<h2 class="greyColorFont">Inputs / Outputs</h2>
+		<div id="requestDiv">
+			<a href="#" onclick="wsc.toggleArrow(this);"><span class="ui-icon ui-icon-circle-triangle-s"></span></a>
+		</div>
+
+		<div id="tabs">
+			<ul>
+				<li><a href="#request">Request</a></li>
+				<li><a href="#response">Response</a></li>
+			</ul>
+			<div id="request">
+				<textarea id="requestXMLTextArea" cols="120" rows="12"></textarea>
+			</div>
+			<div id="response">
+				<textarea id="responseXMLTextArea" cols="120" rows="12"></textarea>
+			</div>
+		</div>
+				
+	</div>
+
+	<div id="aboutToolWsC" class="hideMe">
+		<h2 class="headerClass"><i>Lets make WS simple</i></h2>
+		<div id="accordionWsC">
+			<h3>About</h3>
+			<div>
+				<p>
+					WsClient is an client testing tool for Web Services. This simple tool helps us to test any web services. It uses jQuery for functional or operational and jQuery UI for its rich and flexible UI.
+					This tool uses jQuery-UI extensively and most of the codes are taken from jQuery-UI.
+					We encourage people to fork / download / create new repo out of this repo.
+				</p>
+				<p>
+					To know about jQuery, visit <a href="">jQuery site</a> and to know about jQuery-UI, visit <a href="">jQuery-UI site</a>. You can also visit <a href="http://jquery.org/">jQuery Project</a> site. 
+				</p>
+			</div>
+			<h3>Official site</h3>
+			<div>
+				<p>The official site of this tool is: <a href="http://neerajkpatel.github.com/WsClient">WsClient site</a>.</p>
+			</div>
+			<h3>Download</h3>
+			<div>
+				<p>You can visit the <a href="https://github.com/NeerajKPatel/WsClient">WsClient repo</a> in GIT Hub. The source code can be downloaded in <a href="https://github.com/NeerajKPatel/WsClient/archive/master.zip">zipped file</a>.</p>
+			</div>
+			<h3>License</h3>
+			<div>
+				<p>The source codes and tool are under licensed GNU General Public License version 3. For more information, please refer to file: <a href="https://github.com/NeerajKPatel/WsClient/blob/master/license.txt">license.txt</a></p>
+			</div>
+		</div>
+	</div>
+	
+	<div id="contactInfoWsC" class="hideMe">
+		<h2 class="headerClass">Contact Info: </h2>
+		<div style="margin-left: 10em;">
+			<p>Neeraj Kumar<br/><a href="mailto:kumarneraj@gmail.com">kumarneraj@gmail.com</a></p>
+		</div>
+	</div>
+	
+	</div>
+</body>
+</html>
