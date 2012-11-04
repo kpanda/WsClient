@@ -127,7 +127,6 @@
 				 </select>
 				</td>
 			</tr>
-
 			<tr>		
 				<td>
 				</td>
@@ -135,19 +134,23 @@
 					<p><a href="#" id="dialog-link" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-transferthick-e-w"></span>Send to WS</a></p>
 				</td>
 			</tr>
-
 		</table>
+
+		<div id="requestTextAreaDiv">
+			<h2 class="headerClass">Request / Input: </h2>
+			<textarea id="requestTextArea" title="Please paste your request XML here...">Request goes here</textarea>
+		</div>
 	
-		<!-- Autocomplete -->
-		<h2 class="headerClass">Autocomplete</h2>
-		<div>
-			<input id="autocomplete" title="type the header type">
-		</div>	
-		
 		<!-- Highlight / Error -->
 		<div id="divsforAlert" class="hideMe">
 
-		<!-- Progressbar -->
+			<!-- Autocomplete -->
+			<h2 class="headerClass">Autocomplete</h2>
+			<div>
+				<input id="autocomplete" title="type the header type">
+			</div>	
+			
+			<!-- Progressbar -->
 			<h2 class="headerClass">Progressbar</h2>
 			<div id="progressbar"></div>
 			
@@ -171,7 +174,7 @@
 
 		<hr/>
 		<!-- Tabs -->
-		<h2 class="headerClass">Tabs</h2>
+		<h2 class="headerClass">Inputs / Outputs</h2>
 		<div id="tabs">
 			<ul>
 				<li><a href="#request">Request</a></li>
@@ -187,13 +190,19 @@
 				
 	</div>
 
-	<!-- jQuery Accordion -->
 	<div id="aboutToolWsC" class="hideMe">
 		<h2 class="headerClass"><i>Lets make WS simple</i></h2>
 		<div id="accordionWsC">
 			<h3>About</h3>
 			<div>
-				<p>This simple tool helps us to test any web services. It uses jQuery for functional or operational and jQuery UI for its rich and flexible UI. We encourage people to fork / download / create new repo out of this repo.</p>
+				<p>
+					This simple tool helps us to test any web services. It uses jQuery for functional or operational and jQuery UI for its rich and flexible UI.
+					This tool uses jQuery-UI extensively and most of the codes are taken from jQuery-UI.
+					We encourage people to fork / download / create new repo out of this repo.
+				</p>
+				<p>
+					To know about jQuery, visit <a href="">jQuery site</a>. To know about jQuery-UI, visit <a href="">jQuery-UI site</a>.
+				</p>
 			</div>
 			<h3>Official site</h3>
 			<div>
