@@ -145,7 +145,7 @@ wsc = function () {
 	wsc.toggleArrow = function() {
 		
 		$('#requestDiv span').toggleClass('ui-icon-circle-triangle-s ui-icon-circle-triangle-e');
-		$('#requestTextArea').toggleClass('hideMe');
+		$('#tabs').toggleClass('hideMe');
 	};
 
 

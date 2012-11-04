@@ -146,11 +146,9 @@
 
 		<div id="requestTextAreaDiv">
 			<span style="font-size: 1.5em;"> Request / Input:</span>
-			<div id="requestDiv">
-				<a href="#" onclick="wsc.toggleArrow(this);"><span class="ui-icon ui-icon-circle-triangle-s"></span></a>
-			</div>
+			<br/>
 			<textarea id="requestTextArea" cols="120" rows="12"
-				title="Please paste your request XML here...">Request goes here</textarea>
+				title="Please paste your request XML here..."></textarea>
 		</div>
 	
 		<!-- Highlight / Error -->
@@ -192,6 +190,10 @@
 
 		<!-- Tabs -->
 		<h2 class="headerClass">Inputs / Outputs</h2>
+		<div id="requestDiv">
+			<a href="#" onclick="wsc.toggleArrow(this);"><span class="ui-icon ui-icon-circle-triangle-s"></span></a>
+		</div>
+
 		<div id="tabs">
 			<ul>
 				<li><a href="#request">Request</a></li>
