@@ -3,7 +3,8 @@ WsClient - Lets make WS simple
 
 About
 ------
-This simple tool helps us to test any web services. It uses jQuery for functional or operational and jQuery UI for its rich and flexible UI. 
+
+WsClient is an client testing tool for Web Services. This simple tool helps us to test any web services. It uses jQuery for functional or operational and jQuery UI for its rich and flexible UI. 
 This tool uses jQuery-UI extensively and most of the codes are taken from jQuery-UI.
 We encourage people to fork / download / create new repo out of this repo.
 
